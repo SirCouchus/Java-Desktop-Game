@@ -145,8 +145,8 @@ public class Game extends JPanel implements ActionListener {
             this.e.update();
             this.t.update();
             this.p.update();
+            System.out.println("Player X: " + this.p.getPlayerX());
+            System.out.println("Player Y " + this.p.getPlayerY());
         }
-        System.out.println("Player X: " + this.p.getPlayerX());
-        System.out.println("Player Y " + this.p.getPlayerY());
     }
 }

@@ -55,7 +55,7 @@ public class Player{
         this.health = 100;
         this.healthBarX = 10;
         this.healthBarY = 10;
-        this.sound.playSound(this.soundFile);
+        //this.sound.playSound(this.soundFile);
         this.game = game;
         this.playerRect = new Rectangle((int)(x - game.getGameCamera().getXOffset()), (int)(y - game.getGameCamera().getYOffset()));
     }

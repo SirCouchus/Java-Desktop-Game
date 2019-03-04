@@ -113,6 +113,19 @@ public class Game extends JPanel implements ActionListener {
         this.aCollision = false;
     }
 
+    /**
+     * Checks whether the enemy entity has trespassed
+     * out of bounds.
+     * If they have, stop them from proceeding further.
+     */
+    public void enemyHitBounds(){
+        if(this.map.getTile((int)Math.floor(this.e.getX()/63), (int)Math.floor(this.e.getY()/63))==0){
+            this.e.isAllowed = false;
+        } else {
+            this.e.isAllowed = true;
+        }
+    }
+
     public GameMap getMap(){
         return this.map;
     }
@@ -140,8 +153,9 @@ public class Game extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         this.repaint();
         if(State == STATE.GAME){
-            this.collision();
-            this.hitBounds();
+            this.collision(); /* Checks whether player collided with enemy */
+            this.hitBounds(); /* Checks whether player collided with bounds */
+            this.enemyHitBounds(); /* Checks whether enemy collided with bounds */
             this.e.update();
             this.t.update();
             this.p.update();

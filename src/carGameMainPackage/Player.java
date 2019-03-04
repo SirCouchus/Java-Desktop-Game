@@ -62,7 +62,7 @@ public class Player{
 
     public void update(){
         game.getGameCamera().centerOnEntity(this);
-        if(this.isPressed) {
+        if(this.isPressed && this.isAllowed) {
             this.x += Math.cos(this.getRotationAmount() * (Math.PI / 180));
             this.y += Math.sin(this.getRotationAmount() * (Math.PI / 180));
         }

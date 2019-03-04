@@ -8,6 +8,8 @@ public abstract class EnemyBehaviour {
     private int velX;
     private int velY;
 
+    public boolean isAllowed = true;
+
     public int width;
     public int height;
 

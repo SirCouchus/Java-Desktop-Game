@@ -18,9 +18,11 @@ public class EnemyCars extends EnemyBehaviour {
     }
 
     public void update(){
-        this.setX(700 - (int)this.game.getGameCamera().getXOffset());
-        this.setY(600 - (int)this.game.getGameCamera().getYOffset());
-        this.enemyRect.setLocation(this.getX(), this.getY());
+        if(this.isAllowed) {
+            this.setX(700 - (int) this.game.getGameCamera().getXOffset());
+            this.setY(600 - (int) this.game.getGameCamera().getYOffset());
+            this.enemyRect.setLocation(this.getX(), this.getY());
+        }
         //this.enemyRect.setBounds((int)(this.getX() - game.getGameCamera().getXOffset()), (int)(this.getY() - game.getGameCamera().getYOffset()), this.getWidth(), this.getHeight());
         this.mover();
     }

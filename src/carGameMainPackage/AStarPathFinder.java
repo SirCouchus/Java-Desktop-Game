@@ -7,7 +7,7 @@ public class AStarPathFinder {
     /* The set of nodes that haven't been searched */
     private ArrayList closed = new ArrayList();
     /* The set of nodes that can still be visited */
-    private ArrayList open = new ArrayList();
+    private SortedList open = new SortedList();
 
     /* Import the tile-based map */
     private GameMap map;
@@ -118,7 +118,7 @@ public class AStarPathFinder {
                          * next possible step (open list). */
                         if(!inOpenList(neighbour) && !(inClosedList(neighbour))){
                             neighbour.cost = nextStepCost;
-                            neighbour.heuristic = getHeuristicCost(mover, xp yp, tx, ty);
+                            neighbour.heuristic = getHeuristicCost(mover, xp, yp, tx, ty);
                             maxDepth = Math.max(maxDepth, neighbour.setParent(current));
                             addToOpen(neighbour);
                         }
@@ -157,6 +157,10 @@ public class AStarPathFinder {
 
     protected boolean inOpenList(Node node){
         return open.contains(node);
+    }
+
+    protected boolean inClosedList(Node node){
+        return closed.contains(node);
     }
 
     protected void removeFromOpen(Node node){

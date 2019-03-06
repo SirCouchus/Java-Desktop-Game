@@ -110,6 +110,18 @@ public class GameMap {
         }
     }
 
+    public boolean blocked(Mover mover, int x, int y){
+        return true;
+    }
+
+    public float getCost(Mover mover, int sx, int sy, int tx, int ty){
+        return 10;
+    }
+
+    public void pathFinderVisited(int x, int y){
+
+    }
+
     public int getWidthInTiles(){
         return this.map[0].length;
     }
